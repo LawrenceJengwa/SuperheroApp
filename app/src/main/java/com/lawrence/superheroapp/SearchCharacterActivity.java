@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.lawrence.superheroapp.rest.RetrofitClient;
 import com.lawrence.superheroapp.rest.model.Character;
@@ -39,6 +40,10 @@ public class SearchCharacterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String sCharacterId = mEnteredId.getText().toString().trim();
+                if (Integer.parseInt(sCharacterId)<1 || Integer.parseInt(sCharacterId) > 731){
+                    Toast.makeText(SearchCharacterActivity.this, "Please enter a number between 1 -731", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intent = new Intent(SearchCharacterActivity.this, CharacterIdActivity.class);
                 intent.putExtra("characterId", sCharacterId);
                 startActivity(intent);

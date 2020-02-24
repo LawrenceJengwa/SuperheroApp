@@ -17,8 +17,6 @@ import com.lawrence.superheroapp.rest.model.Image;
 import com.lawrence.superheroapp.rest.network.GetService;
 import com.lawrence.superheroapp.rest.network.glideModule.GlideApp;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,7 +51,6 @@ public class CharacterIdActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         assert extras != null;
         String characterId = extras.getString("characterId");
-        final ArrayList<String> responseData = new ArrayList<>();
 
         mProgressBar.setVisibility(View.VISIBLE);
         GetService service = RetrofitClient.buildService(GetService.class);
